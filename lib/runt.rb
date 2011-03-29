@@ -77,7 +77,7 @@ module Runt
     end
     
     #
-    # Cut and pasted from activesupport-1.2.5/lib/inflector.rb
+    # Everything except last and second-to-last is from activesupport-3.0.4/lib/active_support/inflector/methods.rb
     #
     def ordinalize(number)
       if (number.to_i==-1)
@@ -85,14 +85,14 @@ module Runt
       elsif (number.to_i==-2)
 	'second to last'  
       elsif (11..13).include?(number.to_i % 100)
-	"#{number}th"
+        "#{number}th"
       else
-	case "#{number.to_i%10}"
-	  when "1": "#{number}st"
-	  when "2": "#{number}nd"
-	  when "3": "#{number}rd"
-	  else    "#{number}th"
-	end
+        case number.to_i % 10
+          when 1; "#{number}st"
+          when 2; "#{number}nd"
+          when 3; "#{number}rd"
+          else    "#{number}th"
+        end
       end
     end
 
