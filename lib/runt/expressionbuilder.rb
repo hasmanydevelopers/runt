@@ -30,6 +30,7 @@ require 'runt'
 class ExpressionBuilder
 
   include Runt
+  include RuntSugar
 
   attr_accessor :ctx
 
